@@ -18,6 +18,7 @@ public class SignInPage {
     private static final SelenideElement emailInput = authForm.$(byCssSelector(".auth-form_email-input input"));
     //private static final SelenideElement passwordInput = $(byCssSelector("auth-form_password-input input"));
     private static final SelenideElement passwordInput = authForm.$(byCssSelector(".auth-form_password-input input"));
+    private static final SelenideElement passwordToggleButton = authForm.$(byCssSelector(".auth-form_password-input button"));
     private static final SelenideElement forgotPassLink = authForm.$(byCssSelector(".auth-form_forgot-password"));
     private static final SelenideElement signInButton = authForm.$(byCssSelector(".auth-form_submit-button"));
     private static final SelenideElement authFormError = authForm.$(byCssSelector(".auth-form_error.auth-form_error_enabled"));
@@ -41,6 +42,10 @@ public class SignInPage {
         passwordInput.sendKeys(Keys.CONTROL + "a");
         passwordInput.sendKeys(Keys.BACK_SPACE);
         passwordInput.setValue(password);
+    }
+
+    public static SelenideElement getError(){
+        return authFormError;
     }
 
     public static String getErrorMessage(){
