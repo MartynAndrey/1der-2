@@ -44,12 +44,23 @@ public class SignInPage {
         passwordInput.setValue(password);
     }
 
+    public static Boolean isPasswordVisible(){
+        if (passwordInput.getAttribute("type").equals("text")){
+            return true;
+        }
+        return false;
+    }
+
     public static SelenideElement getError(){
         return authFormError;
     }
 
     public static String getErrorMessage(){
         return authFormError.innerText();
+    }
+
+    public static void clickOnPasswordToggleButton(){
+        passwordToggleButton.click();
     }
 
     public static void clickOnForgotPasswordLink(){
