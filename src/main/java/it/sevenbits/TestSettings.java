@@ -7,4 +7,6 @@ public class TestSettings {
     public static final String  STAGING_SIGNIN_URL = "https://1derlink.7bits.it/sign-in";
     public static final String  STAGING_SIGNUP_URL = "https://1derlink.7bits.it/sign-up";
     public static final String DEFAULT_SHEET_LIST = "Лист1";
+    public static final String RU_LOCALE = "ru";
+    public static final String EN_LOCALE = "en";
 }

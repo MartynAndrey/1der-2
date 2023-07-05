@@ -8,13 +8,14 @@ import it.sevenbits.UI.pages.SignUpPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import static it.sevenbits.TestSettings.*;
 import static com.codeborne.selenide.Condition.visible;
 
 public class SignInPageTest {
 
     @BeforeClass
     public void init(){
-        Configurator.setupChrome("1920x1080");
+        Configurator.setupChrome("1920x1080", EN_LOCALE);
     }
 
     @Test

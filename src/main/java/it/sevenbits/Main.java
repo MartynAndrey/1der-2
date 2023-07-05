@@ -4,11 +4,13 @@ import it.sevenbits.UI.Configurator;
 import it.sevenbits.UI.pages.PromoLinksPage;
 import it.sevenbits.UI.pages.SignInPage;
 
+import static it.sevenbits.TestSettings.*;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        Configurator.setupChrome("1920x1080");
+        Configurator.setupChrome("1920x1080", EN_LOCALE);
         SignInPage.load();
 
         String a = SignInPage.getTitleOfPage();
