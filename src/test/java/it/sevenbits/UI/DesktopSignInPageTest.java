@@ -1,6 +1,5 @@
 package it.sevenbits.UI;
 
-import it.sevenbits.ExcelDataProviders;
 import it.sevenbits.UI.pages.ForgotPasswordPage;
 import it.sevenbits.UI.pages.PromoLinksPage;
 import it.sevenbits.UI.pages.SignInPage;
@@ -11,16 +10,25 @@ import org.testng.annotations.*;
 import static it.sevenbits.TestSettings.*;
 import static com.codeborne.selenide.Condition.visible;
 
-public class SignInPageTest {
+public class DesktopSignInPageTest {
 
     @BeforeClass
     public void init(){
         Configurator.setupChrome("1920x1080", EN_LOCALE);
     }
 
+    @BeforeMethod
+    public void startPage(){
+        SignInPage.start();
+    }
+
+    @AfterMethod
+    public void finishPage() {
+        SignInPage.finish();
+    }
+
     @Test
     public void testLoadSignInPage() {
-        SignInPage.load();
         String expected = "Sign in";
         String actual = SignInPage.getTitleOfPage();
         Assert.assertEquals(actual,expected);
@@ -28,7 +36,6 @@ public class SignInPageTest {
 
     @Test
     public void testLoadSignUpPage() {
-        SignInPage.load();
         SignInPage.clickOnSignUpLink();
         String expected = "Sign up";
         String actual = SignUpPage.getTitleOfPage();
@@ -37,7 +44,6 @@ public class SignInPageTest {
 
     @Test
     public void testLoadForgotPasswordPage() {
-        SignInPage.load();
         SignInPage.clickOnForgotPasswordLink();
 
         String expected = "Password recovery";
@@ -47,7 +53,6 @@ public class SignInPageTest {
 
     @Test
     public void testCheckVisiblePassword() {
-        SignInPage.load();
         SignInPage.setPassword("12password34");
         SignInPage.clickOnPasswordToggleButton();
 
@@ -56,7 +61,6 @@ public class SignInPageTest {
 
     @Test
     public void testCheckInvisiblePassword() {
-        SignInPage.load();
         SignInPage.setPassword("12password34");
         SignInPage.clickOnPasswordToggleButton();
         SignInPage.clickOnPasswordToggleButton();
@@ -64,10 +68,8 @@ public class SignInPageTest {
         Assert.assertTrue(!SignInPage.isPasswordVisible());
     }
 
-    @Ignore
     @Test
     public void testCorrectEmailPassSignIn() {
-        SignInPage.load();
         SignInPage.setEmail("heytest1@rambler.ru");
         SignInPage.setPassword("Ppp1234#");
         SignInPage.clickSignInButton();
@@ -83,8 +85,7 @@ public class SignInPageTest {
         SignInPage.clickSignInButton();
         SignInPage.getError().shouldBe(visible);
     }
-
-     */
+    */
 
     @DataProvider(name = "incorrectEmailPass")
     public static Object[][] emailPass() {
@@ -103,7 +104,6 @@ public class SignInPageTest {
 
     @Test (dataProvider = "incorrectEmailPass")
     public void testIncorrectEmailPassSignIn(String email, String password) {
-        SignInPage.load();
         SignInPage.setEmail(email);
         SignInPage.setPassword(password);
         SignInPage.clickSignInButton();

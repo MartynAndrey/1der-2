@@ -4,9 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
+import static com.codeborne.selenide.Selenide.*;
 import static it.sevenbits.TestSettings.*;
 
 public class SignInPage {
@@ -24,8 +23,12 @@ public class SignInPage {
     private static final SelenideElement authFormError = authForm.$(byCssSelector(".auth-form_error.auth-form_error_enabled"));
     private static final SelenideElement signUpLink = authForm.$(byCssSelector(".auth-form_link"));
 
-    public static void load() {
+    public static void start() {
         open(STAGING_SIGNIN_URL);
+    }
+
+    public static void finish() {
+        closeWindow();
     }
 
     public static String getTitleOfPage(){

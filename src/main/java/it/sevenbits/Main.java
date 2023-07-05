@@ -11,7 +11,7 @@ import static it.sevenbits.TestSettings.*;
 public class Main {
     public static void main(String[] args) {
         Configurator.setupChrome("1920x1080", EN_LOCALE);
-        SignInPage.load();
+        SignInPage.start();
 
         String a = SignInPage.getTitleOfPage();
         SignInPage.setEmail("maiail.ru");
@@ -22,5 +22,7 @@ public class Main {
         SignInPage.setPassword("Ppp1234#");
         SignInPage.clickSignInButton();
         PromoLinksPage.clickIntroSkipButton();
+
+        SignInPage.finish();
     }
 }
