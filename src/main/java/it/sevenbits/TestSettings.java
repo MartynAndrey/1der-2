@@ -9,4 +9,7 @@ public class TestSettings {
     public static final String DEFAULT_SHEET_LIST = "Лист1";
     public static final String RU_LOCALE = "ru";
     public static final String EN_LOCALE = "en";
+    public static final String ERROR_CLASS = "Mui-error";
+    public static final String TOGGLE_SWITCH_ON = "list-item-target__button-switch-on";
+    public static final String TOGGLE_SWITCH_OFF = "list-item-target__button-switch-off";
 }
