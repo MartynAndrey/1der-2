@@ -4,6 +4,7 @@ import it.sevenbits.UI.Configurator;
 import it.sevenbits.UI.pages.PromoLinksPage;
 import it.sevenbits.UI.pages.SignInPage;
 import it.sevenbits.UI.pages.TargetLinksPage;
+import it.sevenbits.UI.pages.Tutorial;
 
 import static it.sevenbits.TestSettings.*;
 
@@ -18,10 +19,11 @@ public class Main {
         SignInPage.setPassword("Ppp1234#");
         SignInPage.clickSignInButton();
 
-        PromoLinksPage.clickIntroSkipButton();
+        Tutorial.clickDontShowAgainCheckbox();
+        Tutorial.clickIntroSkipButton();
         PromoLinksPage.clickFirstPromoLinkButton();
 
-        PromoLinksPage.clickIntroSkipButton();
+        //PromoLinksPage.clickIntroSkipButton();
         TargetLinksPage.clickBackToPromoLinkButton();
 
         PromoLinksPage.clickFirstPromoLinkButton();
@@ -30,11 +32,11 @@ public class Main {
         TargetLinksPage.clickAddTargetLinkButton();
         boolean b1 = TargetLinksPage.isAddTargetLinkLabelHaveError();
         String s2 = TargetLinksPage.getErrorMessage();
-        String s3 = TargetLinksPage.getAddTargetLinkLabel();
+        String s3 = TargetLinksPage.getAddTargetLinkLabelText();
         TargetLinksPage.setTargetLink("asfdasf");
         TargetLinksPage.clickAddTargetLinkButton();
         boolean b2 = TargetLinksPage.isAddTargetLinkLabelHaveError();
-        String s4 = TargetLinksPage.getAddTargetLinkLabel();
+        String s4 = TargetLinksPage.getAddTargetLinkLabelText();
         String s5 = TargetLinksPage.getErrorMessage();
         String s6 = TargetLinksPage.getPromoLinkFromTargetLinksTableHeader();
         int i1 = TargetLinksPage.getTargetsCount();

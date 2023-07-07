@@ -73,7 +73,7 @@ public class DesktopSignInPageTest {
         SignInPage.setEmail("heytest1@rambler.ru");
         SignInPage.setPassword("Ppp1234#");
         SignInPage.clickSignInButton();
-        PromoLinksPage.getAddButton().shouldBe(visible);
+        PromoLinksPage.getAddPromoLinkButton().shouldBe(visible);
     }
 
     /*

@@ -27,11 +27,15 @@ public class TargetLinksPage {
         return titleOfPage.innerText();
     }
 
+    public static boolean isAddTArgetLinkButtonEnabled() {
+        return addTargetLinkButton.isEnabled();
+    }
+
     public static void clickAddTargetLinkButton(){
         addTargetLinkButton.click();
     }
 
-    public static String getAddTargetLinkLabel() {
+    public static String getAddTargetLinkLabelText() {
         return addTargetLinkLabel.innerText();
     }
 
